@@ -28,8 +28,8 @@
 #include <unistd.h>
 #include <string.h>
 
-u_int16_t STACK[8092];  // Stack
-u_int16_t stc = 0;      // Stack counter
+int STACK[8092];        // Stack
+int stc = 0;            // Stack counter
 size_t tc = 0, lc = 1;  // Token counter (tc) and Line counter (lc)
 int token;              // Current token
 int tokval;             // Token value (mainly for dealing with numbers)
@@ -43,9 +43,9 @@ int is_number(char c)     { return c >= '0' && c <= '9'; }
 int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '_'); }
 int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
 // == Stack functions ==
-void push(u_int16_t n)    { STACK[stc++] = n; }
-void pop()                { STACK[stc--] = 0; }
-u_int16_t peek()          { return STACK[stc];}
+void push(int n)    { STACK[stc++] = n; }
+void pop()          { STACK[stc--] = 0; }
+int peek()          { return STACK[stc];}
 void die(const char* msg) {
   perror(msg);
   exit(EXIT_FAILURE);
@@ -76,14 +76,14 @@ void next() {
           tokval = tokval * 10 + code[tc++] - '0';
       }
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
-      push((u_int16_t)tokval);
+      push((int)tokval);
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d\n", current, tc, lc);
       tc++;
-      /*switch (current) {
+      switch (current) {
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
-      }*/
+      }
     }
   }
 }

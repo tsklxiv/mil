@@ -29,7 +29,7 @@
 #include <string.h>
 
 int STACK[8092];        // Stack
-int stc = 0;            // Stack counter
+int stc = -1;           // Stack counter
 size_t tc = 0, lc = 1;  // Token counter (tc) and Line counter (lc)
 int token;              // Current token
 int tokval;             // Token value (mainly for dealing with numbers)

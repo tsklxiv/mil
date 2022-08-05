@@ -43,7 +43,7 @@ int is_number(char c)     { return c >= '0' && c <= '9'; }
 int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '_'); }
 int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
 // == Stack functions ==
-void push(int n)    { STACK[stc++] = n; }
+void push(int n)    { STACK[++stc] = n; }
 void pop()          { STACK[stc--] = 0; }
 int peek()          { return STACK[stc];}
 int pop_return()    { int i = peek(); pop(); return i; }
@@ -83,6 +83,13 @@ void next() {
       printf("TOKEN (%c) at %d, line %d\n", current, tc, lc);
       tc++;
       switch (current) {
+        case '+': {
+          printf("%d\n", stc);
+          push(pop_return() + pop_return());
+          printf("%d\n", stc);
+          printf("%d\n", peek());
+          tc++; return;
+        }
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }
@@ -93,7 +100,7 @@ void parse() {
   while (tc < strlen(code)) {
     next();
   }
-  for (int i = 0; i < stc; i++)
+  for (int i = 0; i <= stc; i++)
     printf("STACK %d: %d\n", i, STACK[i]);
 }
 

@@ -47,6 +47,7 @@ void push(int n)    { STACK[++stc] = n; }
 void pop()          { STACK[stc--] = 0; }
 int peek()          { return STACK[stc];}
 int pop_return()    { int i = peek(); pop(); return i; }
+void pop_print()    { printf("%d", pop_return()); }
 void die(const char* msg) {
   perror(msg);
   exit(EXIT_FAILURE);

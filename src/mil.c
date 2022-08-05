@@ -1,5 +1,5 @@
 /*
-** Nil - A simple stack-based programming language. Written in C.
+** Mil - A simple stack-based programming language. Written in C.
 ** Copyright (c) 2022 Dang Hoang Tuan (Tsuki) <tsukii@disroot.org>
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,18 +27,6 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <string.h>
-
-// == Tokens ==
-enum Token {
-  // Single-character tokens (operators in precedence order)
-  Not, And, Or, Eq, Lt, Gt, Add, Sub, Mul, Div, Mod,
-  // Two-character tokens
-  Ne, Lte, Gte, Inc, Dec,
-  // Literals
-  Ident, Str, Num,
-  // Keywords
-  Print
-};
 
 u_int16_t STACK[8092];  // Stack
 u_int16_t stc = 0;      // Stack counter
@@ -88,23 +76,11 @@ void next() {
           tokval = tokval * 10 + code[tc++] - '0';
       }
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
-      token = Num;
+      push((u_int16_t)tokval);
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d\n", current, tc, lc);
       switch (current) {
-        case '=': token = Eq; tc++; return;
-        case '!': token = (code[tc++] == '=' ? Ne : Not); tc++; return;
-        case '|': token = Or; tc++; return;
-        case '&': token = And; tc++; return;
-        case '<': token = (code[tc++] == '=' ? Lte : Lt); tc++; return;
-        case '>': token = (code[tc++] == '=' ? Gte : Gt); tc++; return;
-        case '+': token = (code[++tc] == '+' ? Inc : Add); tc++; return;
-        case '-': token = (code[tc++] == '-' ? Dec : Sub); tc++; return;
-        case '*': token = Mul; tc++; return;
-        case '/': token = Div; tc++; return;
-        case '%': token = Mod; tc++; return;
-        case '.': token = Print; tc++; return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }
@@ -114,18 +90,6 @@ void next() {
 void parse() {
   while (tc < strlen(code)) {
     next();
-    switch (token) {
-      case Num: push((u_int16_t)tokval); break;
-      case Add: {
-        int a = peek(); pop();
-        int b = peek(); pop();
-        printf("%d %d %d\n", a, b, stc);
-        push(a + b);
-        break;
-      }
-      case Print: printf("%d", peek()); pop(); break;
-      default: break;
-    }
   }
   for (int i = 0; i < stc; i++)
     printf("STACK %d: %d\n", i, STACK[i]);

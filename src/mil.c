@@ -80,7 +80,7 @@ void next() {
       push((int)tokval);
       return;
     } else {
-      printf("TOKEN (%c) at %d, line %d\n", current, tc, lc);
+      printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
       tc++;
       switch (current) {
         case '+': push(pop_return() + pop_return()); tc++; return;

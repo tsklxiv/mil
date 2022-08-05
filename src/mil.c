@@ -87,6 +87,7 @@ void next() {
         case '-': push(pop_return() - pop_return()); tc++; return;
         case '*': push(pop_return() * pop_return()); tc++; return;
         case '/': push(pop_return() / pop_return()); tc++; return;
+        case '%': push(pop_return() % pop_return()); tc++; return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }

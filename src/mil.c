@@ -84,11 +84,7 @@ void next() {
       tc++;
       switch (current) {
         case '+': {
-          printf("%d\n", stc);
-          push(pop_return() + pop_return());
-          printf("%d\n", stc);
-          printf("%d\n", peek());
-          tc++; return;
+          push(pop_return() + pop_return()); tc++; return;
         }
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }

@@ -43,7 +43,7 @@ int is_number(char c)     { return c >= '0' && c <= '9'; }
 int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '_'); }
 int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
 // == Stack functions ==
-void push(u_int16_t n)    { STACK[++stc] = n; }
+void push(u_int16_t n)    { STACK[stc++] = n; }
 void pop()                { STACK[stc--] = 0; }
 u_int16_t peek()          { return STACK[stc];}
 void die(const char* msg) {

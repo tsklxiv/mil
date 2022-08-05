@@ -80,6 +80,7 @@ void next() {
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d\n", current, tc, lc);
+      tc++;
       /*switch (current) {
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }*/

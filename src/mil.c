@@ -83,9 +83,10 @@ void next() {
       printf("TOKEN (%c) at %d, line %d\n", current, tc, lc);
       tc++;
       switch (current) {
-        case '+': {
-          push(pop_return() + pop_return()); tc++; return;
-        }
+        case '+': push(pop_return() + pop_return()); tc++; return;
+        case '-': push(pop_return() - pop_return()); tc++; return;
+        case '*': push(pop_return() * pop_return()); tc++; return;
+        case '/': push(pop_return() / pop_return()); tc++; return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }

@@ -105,7 +105,13 @@ void next() {
         case '*': push(pop_return() * pop_return()); tc++; return;
         case '/': push(pop_return() / pop_return()); tc++; return;
         case '%': push(pop_return() % pop_return()); tc++; return;
-        case '$': for (int i = 0; i <= stc; i++) printf("%c", STACK[i]); tc++; return;
+        case '$': {
+          for (int i = 0; i <= stc; i++)
+            printf("%c", STACK[i]);
+          printf("\n");
+          tc++;
+          return;
+        }
         case '.': pop_print(); tc++; return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }

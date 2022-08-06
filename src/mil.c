@@ -51,7 +51,7 @@ void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i,
 
 // == Parsing + Running ==
 void next() {
-  while (tc < strlen(code)) {
+  while (tc < strlen(code) + 1) {
     char current = code[tc];
     if (is_whitespace(current)) {
       // Skip whitespace
@@ -107,8 +107,7 @@ void next() {
         case '.': pop_print(); tc++; return;
         case 'v': debug_stack(); tc++; return;
         case 'd': {
-          int i = peek();
-          push(i);
+          push(peek());
           tc++;
           return;
         }

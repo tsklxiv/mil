@@ -82,17 +82,20 @@ void next() {
       push((int)tokval);
       return;
     } else if (current == '"') {
-      tc++; int p = tc;
-      while (code[p] != '"') {
-        char cp = code[p++];
+      tc++;
+      while (code[tc] != '"' && code[tc] != '\0') {
+        char ctc = code[tc];
         // Report error if we reach to the EOL or the EOF
         // and still haven't find the closed quoting
-        if (cp == '\n' || cp == '\0')
+        if (ctc == '\n' || ctc == '\0')
           die("Unclosed string literal");
-        printf("%c", cp);
-        push(cp);
+        if (ctc == '"')
+          break;
+        printf("%c", ctc);
+        push(ctc);
+        tc++;
       }
-      tc = p;
+      tc++;
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);

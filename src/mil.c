@@ -148,17 +148,23 @@ char* readsrc(const char* filename) {
   return buffer;
 }
 
+// == Printing help ==
+void help() {
+  printf("Mil is a simple stack-based programming language written in C.\n");
+  printf("Version %s\n", MIL_VERSION);
+  printf("Usage: mil <src>\n");
+}
+
 // == Main ==
 int main(int argc, char* argv[]) {
   if (argc > 2) {
-    printf("Mil is a simple stack-based programming language written in C.\n");
-    printf("Version %s", MIL_VERSION);
-    printf("Usage: mil <src>\n");
+    help();
   } else if (argc == 2) {
     code = readsrc(argv[1]);
     eval();
   } else {
     printf("REPL not supported (yet)\n");
+    help();
   }
   return 0;
 }

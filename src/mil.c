@@ -146,28 +146,15 @@ char* readsrc(const char* filename) {
   return buffer;
 }
 
-// == REPL ==
-void repl() {
-  printf("Mil v1.0\n");
-  char* input[4096];
-  for (;;) {
-    printf("> ");
-    read(STDIN_FILENO, &input, 4096);
-    code = input;
-    eval();
-  }
-}
-
 // == Main ==
 int main(int argc, char* argv[]) {
   if (argc > 2) {
-    printf("Usage: nil <src>");
+    printf("Usage: mil <src>");
   } else if (argc == 2) {
     code = readsrc(argv[1]);
     eval();
   } else {
-    repl();
-    //printf("REPL not supported (yet)");
+    printf("REPL not supported (yet)");
   }
   return 0;
 }

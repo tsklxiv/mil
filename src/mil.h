@@ -17,4 +17,24 @@
 
 #define MIL_VERSION "1.0"
 
+// == Helper functions ==
+int is_number(char c);
+int is_identifier(char c);
+int is_whitespace(char c);
+void die(const char* msg);
+// == Stack functions ==
+void push(int n);
+void pop();
+int peek();
+int pop_return();
+void pop_print();
+void debug_stack();
+// == Parsing + Running ==
+void next();
+void eval();
+// == Reading source code from files ==
+char* readsrc(const char* filename)
+// == Printing help ==
+void help();
+
 #endif

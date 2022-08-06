@@ -80,13 +80,6 @@ void next() {
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
       push((int)tokval);
       return;
-    } else if (is_identifier(current)) {
-      char* tmp = "\0";
-      while (is_identifier(code[tc])) {
-        char* ch[2] = { code[tc], "\0" };
-        strcat(tmp, ch);
-        tc++;
-      }
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
       tc++;

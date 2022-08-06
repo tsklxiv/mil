@@ -91,11 +91,10 @@ void next() {
           die("Unclosed string literal");
         if (ctc == '"')
           break;
-        printf("%c", ctc);
         push(ctc);
         tc++;
       }
-      tc++;
+      tc++; // Avoid including the part that isn't a string
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
@@ -106,6 +105,7 @@ void next() {
         case '*': push(pop_return() * pop_return()); tc++; return;
         case '/': push(pop_return() / pop_return()); tc++; return;
         case '%': push(pop_return() % pop_return()); tc++; return;
+        case '$': for (int i = 0; i <= stc; i++) printf("%c", STACK[i]); tc++; return;
         case '.': pop_print(); tc++; return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }

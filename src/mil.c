@@ -113,6 +113,7 @@ void next() {
           return;
         }
         case '.': pop_print(); tc++; return;
+        case 'v': debug_stack(); tc++; return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }

@@ -106,12 +106,12 @@ void next() {
         }
         case '.': pop_print(); tc++; return;
         case 'v': debug_stack(); tc++; return;
-        case 'd': {
+        /*case 'd': {
           int i = peek();
           push(i);
-          tc++;
+          //tc++;
           return;
-        }
+        }*/
         case 'c': {
           for (int i = 0; i <= stc; i++)
             STACK[i] = 0;

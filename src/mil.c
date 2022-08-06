@@ -74,7 +74,7 @@ void next() {
           tokval = tokval * 10 + code[tc++] - '0';
       }
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
-      push((int)tokval);
+      push(tokval);
       return;
     } else if (current == '"') {
       tc++;

@@ -54,7 +54,7 @@ int pop_return()    { int i = peek(); pop(); return i; }
 void pop_print()    { printf("%d\n", pop_return()); }
 void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i, STACK[i]); }
 
-// == Parsing ==
+// == Parsing + Running ==
 void next() {
   while (tc < strlen(code)) {
     char current = code[tc];

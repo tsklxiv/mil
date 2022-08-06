@@ -78,16 +78,13 @@ void next() {
       return;
     } else if (current == '"') {
       tc++;
-      while (code[tc] != '"' && code[tc] != '\0') {
-        char ctc = code[tc];
+      while (code[tc] != '"') {
+        char ctc = code[tc++];
         // Report error if we reach to the EOL or the EOF
         // and still haven't find the closed quoting
         if (ctc == '\n' || ctc == '\0')
           die("Unclosed string literal");
-        if (ctc == '"')
-          break;
         push(ctc);
-        tc++;
       }
       tc++; // Avoid including the part that isn't a string
       return;

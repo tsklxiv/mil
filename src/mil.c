@@ -67,7 +67,7 @@ void next() {
       // Skip comments
       while (tc < strlen(code) && code[tc] != '\n') tc++;
     } else if (is_number(current)) {
-      /* We will only parse integers at the moment.
+      /* We will only eval integers at the moment.
        * No hex, no octal. etc. */
       tokval = current - '0';
       if (tokval > 0) {
@@ -119,7 +119,7 @@ void next() {
   }
 }
 
-void parse() {
+void eval() {
   while (tc < strlen(code)) {
     next();
   }
@@ -151,7 +151,7 @@ int main(int argc, char* argv[]) {
     printf("Usage: nil <src>");
   } else if (argc == 2) {
     code = readsrc(argv[1]);
-    parse();
+    eval();
   } else {
     printf("REPL not supported (yet)");
   }

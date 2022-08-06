@@ -44,7 +44,7 @@ int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= '
 int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
 void die(const char* msg) {
   perror(msg);
-  exit(1);
+  exit(64);
 }
 // == Stack functions ==
 void push(int n)    { STACK[++stc] = n; }

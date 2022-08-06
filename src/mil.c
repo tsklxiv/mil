@@ -80,16 +80,6 @@ void next() {
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
       push((int)tokval);
       return;
-    } else if (current == '"') {
-      // Parse string
-      char* tmp = "";
-      while (code[tc] == '"') {
-        char* ch = "\0";
-        ch[0] = &code[tc++];
-        strcat(tmp, ch);
-      }
-      printf("STRING (%s) at %d, line %d.\n", tmp, tc, lc);
-      return;
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
       tc++;

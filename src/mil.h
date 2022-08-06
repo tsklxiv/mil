@@ -33,7 +33,7 @@ void debug_stack();
 void next();
 void eval();
 // == Reading source code from files ==
-char* readsrc(const char* filename)
+char* readsrc(const char* filename);
 // == Printing help ==
 void help();
 

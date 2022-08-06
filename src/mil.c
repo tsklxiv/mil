@@ -44,7 +44,7 @@ int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= '
 int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
 void die(const char* msg) {
   perror(msg);
-  exit(EXIT_FAILURE);
+  exit(1);
 }
 // == Stack functions ==
 void push(int n)    { STACK[++stc] = n; }
@@ -80,6 +80,19 @@ void next() {
       }
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
       push((int)tokval);
+      return;
+    } else if (current == '"') {
+      tc++; int p = tc;
+      while (code[p] != '"') {
+        char cp = code[p++];
+        // Report error if we reach to the EOL or the EOF
+        // and still haven't find the closed quoting
+        if (cp == '\n' || cp == '\0')
+          die("Unclosed string literal");
+        printf("%c", cp);
+        push(cp);
+      }
+      tc = p;
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);

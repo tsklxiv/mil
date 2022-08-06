@@ -104,7 +104,7 @@ void next() {
         case '-': push(pop_return() - pop_return()); tc++; return;
         case '*': push(pop_return() * pop_return()); tc++; return;
         case '/': push(pop_return() / pop_return()); tc++; return;
-        case '%': push(pop_return() % pop_return()); tc++; reurn;
+        case '%': push(pop_return() % pop_return()); tc++; return;
         case '$': {
           for (int i = 0; i <= stc; i++)
             printf("%c", STACK[i]);

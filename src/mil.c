@@ -146,6 +146,18 @@ char* readsrc(const char* filename) {
   return buffer;
 }
 
+// == REPL ==
+void repl() {
+  printf("Mil v1.0\n");
+  char* input[4096];
+  for (;;) {
+    printf("> ");
+    read(STDIN_FILENO, &input, 4096);
+    code = input;
+    eval();
+  }
+}
+
 // == Main ==
 int main(int argc, char* argv[]) {
   if (argc > 2) {
@@ -154,7 +166,8 @@ int main(int argc, char* argv[]) {
     code = readsrc(argv[1]);
     eval();
   } else {
-    printf("REPL not supported (yet)");
+    repl();
+    //printf("REPL not supported (yet)");
   }
   return 0;
 }

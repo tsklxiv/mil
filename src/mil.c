@@ -42,16 +42,17 @@ char* code;             // Source code
 int is_number(char c)     { return c >= '0' && c <= '9'; }
 int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '_'); }
 int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
+void die(const char* msg) {
+  perror(msg);
+  exit(EXIT_FAILURE);
+}
 // == Stack functions ==
 void push(int n)    { STACK[++stc] = n; }
 void pop()          { STACK[stc--] = 0; }
 int peek()          { return STACK[stc];}
 int pop_return()    { int i = peek(); pop(); return i; }
 void pop_print()    { printf("%d\n", pop_return()); }
-void die(const char* msg) {
-  perror(msg);
-  exit(EXIT_FAILURE);
-}
+void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i, STACK[i]); }
 
 // == Parsing ==
 void next() {
@@ -100,8 +101,7 @@ void parse() {
   while (tc < strlen(code)) {
     next();
   }
-  for (int i = 0; i <= stc; i++)
-    printf("STACK %d: %d\n", i, STACK[i]);
+  debug_stack();
 }
 
 // == Reading source code from files ==

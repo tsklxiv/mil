@@ -27,4 +27,4 @@ Todos for Mil:
   - [ ] Input (i)
   - [ ] Output (o)
 - [ ] Functions (by using strings)
-- [ ] Eval
+- [x] Eval

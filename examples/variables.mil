@@ -6,4 +6,4 @@
 40 sb # and store 40 to register `b`
 la lb # We load both of `a` and `b` to stack
 d d # Then duplicate register `b` twice
-+ + # Then sum all of them together
++ + + # Then sum all of them together, and print

@@ -4,4 +4,4 @@
 50 40 c v   # c - clear the stack
 4 d * .     # d - duplicate the last element of stack
 50 @ v .    # @ - peeking the stack
-50 40 v r v
+50 40 v r v # r - swap the last 2 elements in stack

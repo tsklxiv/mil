@@ -63,8 +63,8 @@ See `examples/` for more examples about Mil.
 * Small — less than 300 sloc in a single .h/.c pair
 * Compiles down to less than 40kb
 * Supports numbers, strings and functions
-<!-- * Simple mark and sweep GC -->
 * Implemented in portable C99
+<!-- * Simple mark and sweep GC -->
 
 ## Installation
 

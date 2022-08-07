@@ -22,6 +22,8 @@
 */
 
 #include "mil.h"
+#include <stdio.h>
+#include <string.h>
 
 int STACK[8092];        // Stack
 int REG[256];           // 256 general registers (although Mil never use all of them lol)
@@ -136,10 +138,16 @@ void eval(char* code) {
         case 'l': push(REG[(int)code[tc++]]); break;
         // Eval and functions
         case 'x': {
-        char expr[] = "";
+        char expr[4096] = "";
+        /* A pretty clever way to concat a char with a string
+         * Here, we write the formatted output `%s%c` to expr
+         * with %s containing expr itself and %c containing the
+         * character at the STACK[i]
+         */
         for (int i = 0; i <= stc; i++)
-          expr[i] = STACK[i];
-        printf("%s", expr);
+          sprintf(expr, "%s%c", expr, (char)STACK[i]);
+        printf("%s\n", expr);
+        eval(expr);
         tc++;
         return;
         }

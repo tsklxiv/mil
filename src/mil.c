@@ -98,6 +98,8 @@ void next() {
         case '/': push(pop_return() / pop_return()); tc++; return;
         case '%': push(pop_return() % pop_return()); tc++; return;
         case '=': push(pop_return() == pop_return()); tc++; return;
+        case '&': push(pop_return() && pop_return()); tc++; return;
+        case '|': push(pop_return() || pop_return()); tc++; return;
         case '!': (code[tc++] == '=' ? push(pop_return() != pop_return()) : push(!(pop_return()))); return;
         case '<': (code[tc++] == '=' ? push(pop_return() <= pop_return()) : push(pop_return() < pop_return())); return;
         case '>': (code[tc++] == '=' ? push(pop_return() >= pop_return()) : push(pop_return() > pop_return())); return;

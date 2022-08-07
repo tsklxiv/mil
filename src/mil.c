@@ -51,9 +51,9 @@ int pop_return()    { int i = peek(); pop(); return i; }
 void pop_print()    { printf("%d\n", pop_return()); }
 void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i, STACK[i]); }
 
-// == Parsing + Running ==
-void next() {
-  while (tc < strlen(code) + 1) {
+// == Parsing + Running (Eval) ==
+void eval() {
+  while (tc < strlen(code)) {
     char current = code[tc];
     if (is_whitespace(current)) {
       // Skip whitespace
@@ -77,7 +77,6 @@ void next() {
       }
       printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
       push(tokval);
-      return;
     } else if (current == '"') {
       tc++;
       while (code[tc] != '"') {
@@ -89,7 +88,6 @@ void next() {
         push(ctc);
       }
       tc++; // Avoid including the part that isn't a string
-      return;
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
       switch (current) {
@@ -105,11 +103,11 @@ void next() {
         case '>': (code[tc++] == '=' ? push(pop_return() >= pop_return()) : push(pop_return() > pop_return())); return;
         // Printing operators
         case '$': {
-          for (int i = 0; i <= stc; i++)
-            printf("%c", STACK[i]);
-          printf("\n");
-          tc++;
-          return;
+					for (int i = 0; i <= stc; i++)
+					  printf("%c", STACK[i]);
+					printf("\n");
+					tc++;
+					return;
         }
         case 'v': debug_stack(); tc++; return;
         case '.': pop_print(); tc++; return;
@@ -118,21 +116,21 @@ void next() {
         case 'd': {
           push(peek());
           tc++;
-          return;
+					return;
         }
         case 'c': {
-          for (int i = 0; i <= stc; i++)
-            STACK[i] = 0;
-          stc = -1;
-          tc++;
-          return;
+					for (int i = 0; i <= stc; i++)
+					  STACK[i] = 0;
+					stc = -1;
+					tc++;
+					return;
         }
         case 'r': {
-          int a = pop_return(), b = pop_return();
-          push(a);
-          push(b);
-          tc++;
-          return;
+					int a = pop_return(), b = pop_return();
+					push(a);
+					push(b);
+					tc++;
+					return;
         }
         // Store and load variables
         case 's': REG[(int)code[tc++]] = pop_return(); return;
@@ -140,12 +138,6 @@ void next() {
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }
-  }
-}
-
-void eval() {
-  while (tc < strlen(code)) {
-    next();
   }
 }
 

@@ -2,4 +2,5 @@
 # + showcasing operators in Mil
 50 40 v . . # v - viewing the stack
 50 40 c v   # c - clear the stack
-4d*.        # d - duplicate the last element of stack
+4 d * .     # d - duplicate the last element of stack
+50 @ v      # @ - peeking the stack

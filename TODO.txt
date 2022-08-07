@@ -24,5 +24,7 @@ Todos for Mil:
   - [x] Duplicate (d)
   - [ ] Swap/Reverse (r)
 - [ ] Input/Output
+  - [ ] Input (i)
+  - [ ] Output (o)
 - [ ] Functions (by using strings)
 - [ ] Eval

@@ -29,8 +29,7 @@ int peek();
 int pop_return();
 void pop_print();
 void debug_stack();
-// == Parsing + Running ==
-void next();
+// == Parsing + Running (Eval) ==
 void eval();
 // == Reading source code from files ==
 char* readsrc(const char* filename);

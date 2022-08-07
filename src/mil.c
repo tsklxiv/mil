@@ -136,8 +136,11 @@ void eval(char* code) {
         case 'l': push(REG[(int)code[tc++]]); break;
         // Eval and functions
         case 'x': {
-        // Execute operators, one at a time
-        eval((char*)pop_return());
+        // Collect all the numbers in stack into 1 string
+        char* expr = "";
+        while (stc != -1)
+          expr = expr + pop_return();
+        eval(expr);
         tc++;
         break;
         }

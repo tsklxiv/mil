@@ -33,7 +33,7 @@ int tokval;             // Token value (mainly for dealing with numbers)
 FILE* fptr;             // File pointer for reading file
 char* buffer;           // File content buffer
 long nb;                // Number of bytes read from file
-char* code;             // Source code
+//char* code;             // Source code
 
 // == Helper functions ==
 int is_number(char c)     { return c >= '0' && c <= '9'; }
@@ -52,7 +52,7 @@ void pop_print()    { printf("%d\n", pop_return()); }
 void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i, STACK[i]); }
 
 // == Parsing + Running (Eval) ==
-void eval() {
+void eval(char* code) {
   while (tc < strlen(code)) {
     char current = code[tc];
     if (is_whitespace(current)) {
@@ -172,8 +172,7 @@ int main(int argc, char* argv[]) {
   if (argc > 2) {
     help();
   } else if (argc == 2) {
-    code = readsrc(argv[1]);
-    eval();
+    eval(readsrc(argv[1]));
   } else {
     printf("REPL not supported (yet)\n");
     help();

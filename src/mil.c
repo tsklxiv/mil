@@ -135,15 +135,7 @@ void eval(char* code) {
         case 's': REG[(int)code[tc++]] = pop_return(); break;
         case 'l': push(REG[(int)code[tc++]]); break;
         // Eval and functions
-        case 'x': {
-        // Collect all the numbers in stack into 1 string
-        char* expr = "";
-        while (stc != -1)
-          expr = expr + pop_return();
-        eval(expr);
-        tc++;
-        break;
-        }
+        case 'x':
         default: printf("UNKNOWN (%c)\n", current); tc++; break;
       }
     }

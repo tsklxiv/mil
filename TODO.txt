@@ -5,15 +5,15 @@ Todos for Mil:
 - [ ] Handling keywords
 - [x] Basic arithmetic operators (+, -, *, /)
 - [x] True and False (1 for true, 0 for false)
-- [ ] Comparison operators
+- [x] Comparison operators
   - [x] < and <=
   - [x] > and >=
   - [x] ==
-  - [ ] !=
+  - [x] !=
 - [ ] Logical operators
   - [ ] And (&)
   - [ ] Or (|)
-  - [ ] Not (!)
+  - [x] Not (!)
 - [ ] Printing commands
   - [x] v for viewing stack
   - [x] . for popping stack

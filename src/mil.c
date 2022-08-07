@@ -108,8 +108,9 @@ void next() {
           tc++;
           return;
         }
-        case '.': pop_print(); tc++; return;
         case 'v': debug_stack(); tc++; return;
+        case '.': pop_print(); tc++; return;
+        case '@': printf("%d", peek()); tc++; return;
         case 'd': {
           push(peek());
           tc++;

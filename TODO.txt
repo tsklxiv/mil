@@ -4,9 +4,20 @@ Todos for Mil:
 - [ ] Handling variables
 - [ ] Handling keywords
 - [x] Basic arithmetic operators (+, -, *, /)
+- [x] True and False (1 for true, 0 for false)
 - [ ] Comparison operators
+  - [x] < and <=
+  - [x] > and >=
+  - [x] ==
+  - [ ] !=
+- [ ] Logical operators
+  - [ ] And (&)
+  - [ ] Or (|)
+  - [ ] Not (!)
 - [ ] Printing commands
-      (v for viewing stack, . for popping stack, and @ for peeking)
+  - [x] v for viewing stack
+  - [x] . for popping stack
+  - [ ] @ for peeking
 - [ ] Store/Load variables
 - [ ] Stack control operators
   - [x] Clear stack (c)

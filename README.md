@@ -1,12 +1,70 @@
-# Nil
+<!-- markdownlint-configure-file {
+  "MD013": {
+    "code_blocks": false,
+    "tables": false
+  },
+  "MD033": false,
+  "MD041": false
+} -->
 
-A failed stack-based programming language that I wrote in C. Stuck between parsing/running part.
-
-## Quick start
+<div align="center">
 
 ```
-git clone https://github.com/HoangTuan110/nil
+
+      ___                       ___ 
+     /\__\          ___        /\__\
+    /::|  |        /\  \      /:/  /
+   /:|:|  |        \:\  \    /:/  / 
+  /:/|:|__|__      /::\__\  /:/  /  
+ /:/ |::::\__\  __/:/\/__/ /:/__/   
+ \/__/~~/:/  / /\/:/  /    \:\  \   
+       /:/  /  \::/__/      \:\  \  
+      /:/  /    \:\__\       \:\  \ 
+     /:/  /      \/__/        \:\__\
+     \/__/                     \/__/
+
+```
+
+# Mil
+
+A *small, concatenative* programming language. Implemented in C99.
+
+Mainly influenced by GNU `dc` and Forth.
+
+> Note: Mil is incomplete, and can contain bugs and nasty stuff.
+> You can go to the TODO.txt for a list of completed and incompleted
+> things.
+> If you find a bug, please open an issue.
+
+[Getting started](#getting-started) •
+[Installation](#installation) •
+[License](#license)
+
+</div>
+
+## Getting started
+
+```
+# A small taste of Mil
+"Hello Mil!" .
+50 40 + sa # a = (40 + 50)
+30 20 - sb # b = (20 - 30)
+la lb = .  # print(a == b)
+```
+
+See `examples/` for more examples about Mil.
+
+## Installation
+
+```sh
+git clone https://github.com/HoangTuan110/mil
+cd mil
 chmod +x build.sh
 ./build.sh
-./nil <file>
 ```
+
+## License
+
+This program in under the MIT license. See LICENSE for more details.
+
+</div>

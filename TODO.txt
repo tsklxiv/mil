@@ -1,7 +1,7 @@
 Todos for Mil:
 - [x] Handling numbers
 - [x] Handling strings
-- [ ] Store/Load variables
+- [x] Store/Load variables (with `s` and `l`)
 - [ ] Handling keywords
 - [x] Basic arithmetic operators (+, -, *, /)
 - [x] True and False (1 for true, 0 for false)

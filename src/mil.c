@@ -91,7 +91,6 @@ void next() {
       return;
     } else {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
-      tc++;
       switch (current) {
         // Arithmetic and comparison operators
         case '+': push(pop_return() + pop_return()); tc++; return;

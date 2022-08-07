@@ -35,8 +35,13 @@ Mainly influenced by GNU `dc` and Forth.
 > You can go to the [TODO.txt](https://github.com/HoangTuan110/mil/blob/main/TODO.txt)
 > for a list of completed and incomplete things.
 > If you find a bug in Mil, [please open an issue](https://github.com/HoangTuan110/mil/issues).
+> <br>
+> Mil is also a primarily hobby project, so features that you
+> expected from other small C programming languages are not here yet,
+> like GC and C APIs. These may be implemented in the future.
 
 [Getting started](#getting-started) •
+[Overview](#overview) •
 [Installation](#installation) •
 [License](#license)
 
@@ -53,6 +58,13 @@ la lb = .  # print(a == b)
 ```
 
 See `examples/` for more examples about Mil.
+
+## Overview
+* Small — less than 300 sloc in a single .h/.c pair
+* Compiles down to less than 40kb
+* Supports numbers, strings and functions
+<!-- * Simple mark and sweep GC -->
+* Implemented in portable C99
 
 ## Installation
 

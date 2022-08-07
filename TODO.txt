@@ -1,7 +1,7 @@
 Todos for Mil:
 - [x] Handling numbers
 - [x] Handling strings
-- [ ] Handling variables
+- [ ] Store/Load variables
 - [ ] Handling keywords
 - [x] Basic arithmetic operators (+, -, *, /)
 - [x] True and False (1 for true, 0 for false)
@@ -18,7 +18,6 @@ Todos for Mil:
   - [x] v for viewing stack
   - [x] . for popping stack
   - [x] @ for peeking
-- [ ] Store/Load variables
 - [ ] Stack control operators
   - [x] Clear stack (c)
   - [x] Duplicate (d)

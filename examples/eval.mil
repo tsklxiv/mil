@@ -1,0 +1,15 @@
+# Mil also supports strings to store functions
+# and for executing them, Mil uses `x` like `dc`
+
+# For storing functions, Mil uses `F`, followed
+# by a character.
+# Because Mil uses 2 seperate arrays for storing
+# general registers and function registers, this
+# means that you can have the Q general register
+# and the `Q` function register
+
+# This example demonstrates how you can execute
+# and store functions
+
+# Executing a string
+"4d*."x

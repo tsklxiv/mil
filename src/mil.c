@@ -29,7 +29,6 @@ int STACK[8092];        // Stack
 int REG[256];           // 256 general registers (although Mil never use all of them lol)
 char* FUNC[256];        // 256 function registers
 int stc = -1;           // Stack counter
-size_t tc = 0, lc = 1;  // Token counter (tc) and Line counter (lc)
 int token;              // Current token
 int tokval;             // Token value (mainly for dealing with numbers)
 FILE* fptr;             // File pointer for reading file
@@ -54,6 +53,8 @@ void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i,
 
 // == Parsing + Running (Eval) ==
 void eval(char* code) {
+  // Token counter (tc) and Line counter (lc)
+  size_t tc = 0, lc = 1;
   while (tc < strlen(code)) {
     char current = code[tc];
     if (is_whitespace(current)) {

@@ -22,6 +22,7 @@ Todos for Mil:
   - [x] Clear stack (c)
   - [x] Duplicate (d)
   - [x] Swap/Reverse (r)
+  - [ ] Drop nth element (0_ drops the last element of stack)
 - [ ] Input/Output
   - [ ] Input (i)
   - [ ] Output (o)

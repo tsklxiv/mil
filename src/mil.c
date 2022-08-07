@@ -156,7 +156,7 @@ char* readsrc(const char* filename) {
 
 // == Printing help ==
 void help() {
-  printf("Mil is a simple stack-based programming language written in C.\n");
+  printf("Mil is a small and concatenative programming language written in C.\n");
   printf("Version %s\n", MIL_VERSION);
   printf("Usage: mil <src>\n");
 }

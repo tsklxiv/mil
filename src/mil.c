@@ -179,6 +179,20 @@ char* readsrc(const char* filename) {
 
 // == Printing help ==
 void help() {
+  // ASCII art text. Might look pretty funky but renders really well
+  const char* text =
+    "     ___                       ___\n"
+    "    /\\__\\          ___        /\\__\\\n"
+    "   /::|  |        /\\  \\      /:/  /\n"
+    "  /:|:|  |        \\:\\  \\    /:/  /\n"
+    " /:/|:|__|__      /::\\__\\  /:/  /  \n"
+    "/:/ |::::\\__\\  __/:/\\/__/ /:/__/   \n"
+    "\\/__/~~/:/  / /\\/:/  /    \\:\\  \\   \n"
+    "      /:/  /  \\::/__/      \\:\\  \\  \n"
+    "     /:/  /    \\:\\__\\       \\:\\  \\ \n"
+    "    /:/  /      \\/__/        \\:\\__\\\n"
+    "    \\/__/                     \\/__/\n";
+  printf("%s", text);
   printf("Mil is a small and concatenative programming language written in C.\n");
   printf("Version %s\n", MIL_VERSION);
   printf("Usage: mil <src>\n");

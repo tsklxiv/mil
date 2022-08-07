@@ -127,6 +127,13 @@ void next() {
           tc++;
           return;
         }
+        case 'r': {
+          int a = pop_return(), b = pop_return();
+          push(a);
+          push(b);
+          tc++;
+          return;
+        }
         // Store and load variables
         case 's': REG[(int)code[tc++]] = pop_return(); return;
         case 'l': push(REG[(int)code[tc++]]); return;
@@ -140,7 +147,6 @@ void eval() {
   while (tc < strlen(code)) {
     next();
   }
-  debug_stack();
 }
 
 // == Reading source code from files ==

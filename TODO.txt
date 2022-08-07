@@ -1,0 +1,17 @@
+Todos for Mil:
+- [x] Handling numbers
+- [x] Handling strings
+- [ ] Handling variables
+- [ ] Handling keywords
+- [x] Basic arithmetic operators (+, -, *, /)
+- [ ] Comparison operators
+- [ ] Printing commands
+      (v for viewing stack, . for popping stack, and @ for peeking)
+- [ ] Store/Load variables
+- [ ] Stack control operators
+  - [x] Clear stack (c)
+  - [x] Duplicate (d)
+  - [ ] Swap/Reverse (r)
+- [ ] Input/Output
+- [ ] Functions (by using strings)
+- [ ] Eval

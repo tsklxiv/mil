@@ -33,7 +33,6 @@ int tokval;             // Token value (mainly for dealing with numbers)
 FILE* fptr;             // File pointer for reading file
 char* buffer;           // File content buffer
 long nb;                // Number of bytes read from file
-//char* code;             // Source code
 
 // == Helper functions ==
 int is_number(char c)     { return c >= '0' && c <= '9'; }

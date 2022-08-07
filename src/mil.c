@@ -134,6 +134,13 @@ void eval(char* code) {
         // Store and load variables
         case 's': REG[(int)code[tc++]] = pop_return(); break;
         case 'l': push(REG[(int)code[tc++]]); break;
+        // Eval and functions
+        case 'x': {
+        // Execute operators, one at a time
+        eval((char*)pop_return());
+        tc++;
+        break;
+        }
         default: printf("UNKNOWN (%c)\n", current); tc++; break;
       }
     }

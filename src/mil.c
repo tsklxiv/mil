@@ -22,8 +22,6 @@
 */
 
 #include "mil.h"
-#include <stdio.h>
-#include <string.h>
 
 int STACK[8092];        // Stack
 int REG[256];           // 256 general registers (although Mil never use all of them lol)

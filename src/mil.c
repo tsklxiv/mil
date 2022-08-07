@@ -24,7 +24,8 @@
 #include "mil.h"
 
 int STACK[8092];        // Stack
-int REG[256];           // 256 registers (although Mil never use all of them)
+int REG[256];           // 256 general registers (although Mil never use all of them lol)
+char* FUNC[256];        // 256 function registers
 int stc = -1;           // Stack counter
 size_t tc = 0, lc = 1;  // Token counter (tc) and Line counter (lc)
 int token;              // Current token

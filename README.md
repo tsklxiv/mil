@@ -32,7 +32,7 @@ A *small, concatenative* programming language. Implemented in C99.
 Mainly influenced by GNU `dc` and Forth.
 
 > Note: Mil is incomplete, and can contain bugs and nasty stuff.
-> You can go to the TODO.txt for a list of completed and incompleted
+> You can go to the TODO.txt for a list of completed and incomplete
 > things.
 > If you find a bug, please open an issue.
 

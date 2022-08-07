@@ -14,10 +14,10 @@ Todos for Mil:
   - [ ] And (&)
   - [ ] Or (|)
   - [x] Not (!)
-- [ ] Printing commands
+- [x] Printing commands
   - [x] v for viewing stack
   - [x] . for popping stack
-  - [ ] @ for peeking
+  - [x] @ for peeking
 - [ ] Store/Load variables
 - [ ] Stack control operators
   - [x] Clear stack (c)

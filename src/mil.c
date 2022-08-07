@@ -24,6 +24,7 @@
 #include "mil.h"
 
 int STACK[8092];        // Stack
+int REG[256];           // 256 registers (although Mil never use all of them)
 int stc = -1;           // Stack counter
 size_t tc = 0, lc = 1;  // Token counter (tc) and Line counter (lc)
 int token;              // Current token
@@ -92,6 +93,7 @@ void next() {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
       tc++;
       switch (current) {
+        // Arithmetic and comparison operators
         case '+': push(pop_return() + pop_return()); tc++; return;
         case '-': push(pop_return() - pop_return()); tc++; return;
         case '*': push(pop_return() * pop_return()); tc++; return;
@@ -101,6 +103,7 @@ void next() {
         case '!': (code[tc++] == '=' ? push(pop_return() != pop_return()) : push(!(pop_return()))); return;
         case '<': (code[tc++] == '=' ? push(pop_return() <= pop_return()) : push(pop_return() < pop_return())); return;
         case '>': (code[tc++] == '=' ? push(pop_return() >= pop_return()) : push(pop_return() > pop_return())); return;
+        // Printing operators
         case '$': {
           for (int i = 0; i <= stc; i++)
             printf("%c", STACK[i]);
@@ -111,6 +114,7 @@ void next() {
         case 'v': debug_stack(); tc++; return;
         case '.': pop_print(); tc++; return;
         case '@': printf("%d\n", peek()); tc++; return;
+        // Stack control operators
         case 'd': {
           push(peek());
           tc++;
@@ -123,6 +127,9 @@ void next() {
           tc++;
           return;
         }
+        // Store and load variables
+        case 's': REG[(int)code[tc++]] = pop_return(); return;
+        case 'l': push(REG[(int)code[tc++]]); return;
         default: printf("UNKNOWN (%c)\n", current); tc++; return;
       }
     }

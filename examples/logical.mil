@@ -1,0 +1,8 @@
+# Logical operators in Mil
+# It returns 1 for true, and 0 for false
+# <: 50 < 40
+40 50 < .
+# <=: 40 <= 50
+50 40 <= .
+# =: 50 == 50
+50 50 = .

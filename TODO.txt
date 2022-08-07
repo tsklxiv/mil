@@ -18,10 +18,10 @@ Todos for Mil:
   - [x] v for viewing stack
   - [x] . for popping stack
   - [x] @ for peeking
-- [ ] Stack control operators
+- [x] Stack control operators
   - [x] Clear stack (c)
   - [x] Duplicate (d)
-  - [ ] Swap/Reverse (r)
+  - [x] Swap/Reverse (r)
 - [ ] Input/Output
   - [ ] Input (i)
   - [ ] Output (o)

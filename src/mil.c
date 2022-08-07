@@ -92,50 +92,50 @@ void eval() {
       printf("TOKEN (%c) at %d, line %d.\n", current, tc, lc);
       switch (current) {
         // Arithmetic and comparison operators
-        case '+': push(pop_return() + pop_return()); tc++; return;
-        case '-': push(pop_return() - pop_return()); tc++; return;
-        case '*': push(pop_return() * pop_return()); tc++; return;
-        case '/': push(pop_return() / pop_return()); tc++; return;
-        case '%': push(pop_return() % pop_return()); tc++; return;
-        case '=': push(pop_return() == pop_return()); tc++; return;
-        case '!': (code[tc++] == '=' ? push(pop_return() != pop_return()) : push(!(pop_return()))); return;
-        case '<': (code[tc++] == '=' ? push(pop_return() <= pop_return()) : push(pop_return() < pop_return())); return;
-        case '>': (code[tc++] == '=' ? push(pop_return() >= pop_return()) : push(pop_return() > pop_return())); return;
+        case '+': push(pop_return() + pop_return()); tc++; break;
+        case '-': push(pop_return() - pop_return()); tc++; break;
+        case '*': push(pop_return() * pop_return()); tc++; break;
+        case '/': push(pop_return() / pop_return()); tc++; break;
+        case '%': push(pop_return() % pop_return()); tc++; break;
+        case '=': push(pop_return() == pop_return()); tc++; break;
+        case '!': (code[tc++] == '=' ? push(pop_return() != pop_return()) : push(!(pop_return()))); break;
+        case '<': (code[tc++] == '=' ? push(pop_return() <= pop_return()) : push(pop_return() < pop_return())); break;
+        case '>': (code[tc++] == '=' ? push(pop_return() >= pop_return()) : push(pop_return() > pop_return())); break;
         // Printing operators
         case '$': {
 					for (int i = 0; i <= stc; i++)
 					  printf("%c", STACK[i]);
 					printf("\n");
 					tc++;
-					return;
+					break;
         }
-        case 'v': debug_stack(); tc++; return;
-        case '.': pop_print(); tc++; return;
-        case '@': printf("%d\n", peek()); tc++; return;
+        case 'v': debug_stack(); tc++; break;
+        case '.': pop_print(); tc++; break;
+        case '@': printf("%d\n", peek()); tc++; break;
         // Stack control operators
         case 'd': {
           push(peek());
           tc++;
-					return;
+					break;
         }
         case 'c': {
 					for (int i = 0; i <= stc; i++)
 					  STACK[i] = 0;
 					stc = -1;
 					tc++;
-					return;
+					break;
         }
         case 'r': {
 					int a = pop_return(), b = pop_return();
 					push(a);
 					push(b);
 					tc++;
-					return;
+					break;
         }
         // Store and load variables
-        case 's': REG[(int)code[tc++]] = pop_return(); return;
-        case 'l': push(REG[(int)code[tc++]]); return;
-        default: printf("UNKNOWN (%c)\n", current); tc++; return;
+        case 's': REG[(int)code[tc++]] = pop_return(); break;
+        case 'l': push(REG[(int)code[tc++]]); break;
+        default: printf("UNKNOWN (%c)\n", current); tc++; break;
       }
     }
   }

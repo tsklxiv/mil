@@ -8,7 +8,7 @@ Todos for Mil:
 - [x] Comparison operators
   - [x] < and <=
   - [x] > and >=
-  - [x] ==
+  - [x] =
   - [x] !=
 - [ ] Logical operators
   - [ ] And (&)

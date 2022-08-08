@@ -27,8 +27,6 @@ int STACK[8092];        // Stack
 int REG[256];           // 256 general registers (although Mil never use all of them lol)
 char* FUNC[256];        // 256 function registers
 int stc = -1;           // Stack counter
-int token;              // Current token
-int tokval;             // Token value (mainly for dealing with numbers)
 FILE* fptr;             // File pointer for reading file
 char* buffer;           // File content buffer
 long nb;                // Number of bytes read from file
@@ -145,7 +143,6 @@ void eval(char* code) {
          */
         for (int i = 0; i <= stc; i++)
           sprintf(expr, "%s%c", expr, (char)STACK[i]);
-        printf("%s\n", expr);
         eval(expr);
         tc++;
         return;

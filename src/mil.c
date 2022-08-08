@@ -1,5 +1,5 @@
 /*
-** Mil - A simple stack-based programming language. Written in C.
+** Mil - A small and concatenative programming language. Implemented in C99.
 ** Copyright (c) 2022 Dang Hoang Tuan (Tsuki) <tsukii@disroot.org>
 **
 ** Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -191,7 +191,7 @@ void help() {
     "    /:/  /      \\/__/        \\:\\__\\\n"
     "    \\/__/                     \\/__/\n";
   printf("%s", text);
-  printf("Mil is a small and concatenative programming language written in C.\n");
+  printf("Mil is a small and concatenative programming language implemented in C99.\n");
   printf("Version %s\n", MIL_VERSION);
   printf("Usage: mil <src>\n");
 }

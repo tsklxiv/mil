@@ -22,6 +22,7 @@
 */
 
 #include "mil.h"
+#include <unistd.h>
 
 // == Tokenize functions + constants ==
 #define number(c)     ( c >= '0' && c <= '9' )
@@ -137,17 +138,25 @@ void eval(char* code) {
         case 'l': push(REG[(int)code[tc++]]); break;
         // Eval and functions
         case 'x': {
-        char expr[4096] = "";
-        /* A pretty clever way to concat a char with a string
-         * Here, we write the formatted output `%s%c` to expr
-         * with %s containing expr itself and %c containing the
-         * character at the STACK[i]
-         */
-        for (int i = 0; i <= stc; i++)
-          sprintf(expr, "%s%c", expr, (char)STACK[i]);
-        eval(expr);
-        tc++;
-        return;
+          char expr[4096] = "";
+          /* A pretty clever way to concat a char with a string
+          * Here, we write the formatted output `%s%c` to expr
+          * with %s containing expr itself and %c containing the
+          * character at the STACK[i]
+          */
+          for (int i = 0; i <= stc; i++)
+            sprintf(expr, "%s%c", expr, (char)STACK[i]);
+          eval(expr);
+          tc++;
+          break;
+        }
+        // Input
+        case 'i': {
+          int i = 0;
+          scanf("%d", &i);
+          push(i);
+          tc++;
+          break;
         }
         default: printf("UNKNOWN (%c)\n", current); tc++; break;
       }

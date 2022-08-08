@@ -26,3 +26,6 @@ Todos for Mil:
 - [ ] Input (i) (we already have output)
 - [ ] Functions (by using strings)
 - [x] Eval
+- [ ] REPL
+- [ ] Mark and sweep GC
+- [ ] C API

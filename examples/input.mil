@@ -1,3 +1,4 @@
 # Mil also supports integer input by using `i`
 # Here, we take two inputs from the user and sum them
-ii+
+# Then output them
+ii+.

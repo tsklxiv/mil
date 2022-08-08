@@ -64,17 +64,17 @@ void eval(char* code) {
     } else if (is_number(current)) {
       /* We will only eval integers at the moment.
        * No hex, no octal. etc. */
-      tokval = current - '0';
-      if (tokval > 0) {
+      int value = current - '0';
+      if (value > 0) {
         // Parse decimal number
         // From https://github.com/lotabout/write-a-C-interpreter/blob/master/xc-tutor.c#L108,L110 
         // Reset token value to avoid first number duplication (e.g. 6 -> 66)
-        tokval = 0;
+        value = 0;
         while (is_number(code[tc]))
-          tokval = tokval * 10 + code[tc++] - '0';
+          value = value * 10 + code[tc++] - '0';
       }
-      printf("NUMBER (%d) at %d, line %d.\n", tokval, tc, lc);
-      push(tokval);
+      printf("NUMBER (%d) at %d, line %d.\n", value, tc, lc);
+      push(value);
     } else if (current == '"') {
       tc++;
       while (code[tc] != '"') {

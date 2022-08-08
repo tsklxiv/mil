@@ -22,7 +22,6 @@
 */
 
 #include "mil.h"
-#include <unistd.h>
 
 // == Tokenize functions + constants ==
 #define number(c)     ( c >= '0' && c <= '9' )

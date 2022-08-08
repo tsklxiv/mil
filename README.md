@@ -51,7 +51,7 @@ Mainly influenced by GNU `dc` and Forth.
 
 ```
 # A small taste of Mil
-"Hello Mil!" .
+"Hello Mil!" $ # print("Hello world!")
 50 40 + sa # a = (40 + 50)
 30 20 - sb # b = (20 - 30)
 la lb = .  # print(a == b)

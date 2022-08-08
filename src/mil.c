@@ -23,6 +23,12 @@
 
 #include "mil.h"
 
+// == Tokenize functions + constants ==
+#define number(c)     ( c >= '0' && c <= '9' )
+#define whitespace(c) ( c == ' ' || c == '\t' || c == '\f' )
+#define STACK_SIZE    ( 4096 )
+#define REG_SIZE      ( 256  )
+
 int STACK[8092];        // Stack
 int REG[256];           // 256 general registers (although Mil never use all of them lol)
 char* FUNC[256];        // 256 function registers
@@ -31,21 +37,17 @@ FILE* fptr;             // File pointer for reading file
 char* buffer;           // File content buffer
 long nb;                // Number of bytes read from file
 
-// == Helper functions ==
-int is_number(char c)     { return c >= '0' && c <= '9'; }
-int is_identifier(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c == '_'); }
-int is_whitespace(char c) { return c == ' ' || c == '\t' || c == '\f'; }
-void die(const char* msg) {
-  perror(msg);
-  exit(64);
-}
-// == Stack functions ==
+// == Stack + Helper functions ==
 void push(int n)    { STACK[++stc] = n; }
 void pop()          { STACK[stc--] = 0; }
 int peek()          { return STACK[stc];}
 int pop_return()    { int i = peek(); pop(); return i; }
 void pop_print()    { printf("%d\n", pop_return()); }
 void debug_stack()  { for (int i = 0; i <= stc; i++) printf("STACK %d: %d\n", i, STACK[i]); }
+void die(const char* msg) {
+  perror(msg);
+  exit(64);
+}
 
 // == Parsing + Running (Eval) ==
 void eval(char* code) {
@@ -53,7 +55,7 @@ void eval(char* code) {
   size_t tc = 0, lc = 1;
   while (tc < strlen(code)) {
     char current = code[tc];
-    if (is_whitespace(current)) {
+    if (whitespace(current)) {
       // Skip whitespace
       tc++;
     } else if (current == '\n') {
@@ -61,7 +63,7 @@ void eval(char* code) {
     } else if (current == '#') {
       // Skip comments
       while (tc < strlen(code) && code[tc] != '\n') tc++;
-    } else if (is_number(current)) {
+    } else if (number(current)) {
       /* We will only eval integers at the moment.
        * No hex, no octal. etc. */
       int value = current - '0';
@@ -70,7 +72,7 @@ void eval(char* code) {
         // From https://github.com/lotabout/write-a-C-interpreter/blob/master/xc-tutor.c#L108,L110 
         // Reset token value to avoid first number duplication (e.g. 6 -> 66)
         value = 0;
-        while (is_number(code[tc]))
+        while (number(code[tc]))
           value = value * 10 + code[tc++] - '0';
       }
       printf("NUMBER (%d) at %d, line %d.\n", value, tc, lc);

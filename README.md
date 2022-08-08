@@ -65,6 +65,7 @@ See `examples/` for more examples about Mil.
 * Supports numbers, strings and functions
 * Implemented in portable C99
 <!-- * Simple mark and sweep GC -->
+<!-- * Easy-to-use C API -->
 
 ## Installation
 

@@ -133,8 +133,8 @@ void eval(char* code) {
 					break;
         }
         // Store and load variables
-        case 's': REG[(int)code[tc++]] = pop_return(); break;
-        case 'l': push(REG[(int)code[tc++]]); break;
+        case 's': REG[(int)code[tc++]] = pop_return(); tc++; break;
+        case 'l': push(REG[(int)code[tc++]]); tc++; break;
         // Eval and functions
         case 'x': {
           char expr[4096] = "";

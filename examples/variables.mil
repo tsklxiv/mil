@@ -2,8 +2,4 @@
 # each of the registers are named after a character
 # Unlike dc, registers can only store numbers
 # Mil uses `s` for storing and `l` for loading registers
-50 sa # We store 50 to register `a`
-40 sb # and store 40 to register `b`
-la lb # We load both of `a` and `b` to stack
-d d # Then duplicate register `b` twice
-+ + + v # Then sum all of them together, and print
+50 sa la .

@@ -29,9 +29,9 @@
 #define STACK_SIZE    ( 4096 )
 #define REG_SIZE      ( 256  )
 
-int STACK[8092];        // Stack
-int REG[256];           // 256 general registers (although Mil never use all of them lol)
-char* FUNC[256];        // 256 function registers
+int STACK[STACK_SIZE];  // Stack
+int REG[REG_SIZE];      // General registers (for storing numbers)
+char* FUNC[REG_SIZE];   // Function registers (for storing functions)
 int stc = -1;           // Stack counter
 FILE* fptr;             // File pointer for reading file
 char* buffer;           // File content buffer
